@@ -2,6 +2,14 @@ import { render, fireEvent } from "@testing-library/react";
 import Carousel from "./Carousel";
 import TEST_IMAGES from "./_testCommon.js";
 
+//SMOKE TEST
+it("loads without crashing", function(){
+  render(<Carousel
+    photos={TEST_IMAGES}
+    title="images for testing"
+  />);
+});
+
 it("works when you click on the right arrow", function() {
   const { container } = render(
     <Carousel
@@ -28,4 +36,15 @@ it("works when you click on the right arrow", function() {
   expect(
     container.querySelector('img[alt="testing image 2"]')
   ).toBeInTheDocument();
+});
+
+//SNAPSHOT TEST
+it("matches snapshot", function(){
+  const { container } = render(
+    <Carousel
+      photos={TEST_IMAGES}
+      title="images for testing"
+    />);
+
+  expect(container).toMatchSnapshot();
 });
