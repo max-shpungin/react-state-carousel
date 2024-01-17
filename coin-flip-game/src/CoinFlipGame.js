@@ -14,28 +14,32 @@ function CoinFlipGame(){
     totalCounter: 0,
   });
 
+  console.log('CoinFlipGame render');
+  console.log('gameState', gameState);
+
+
   function _handleCoinFlip(){
     const values = IMAGES;
 
     const choice = values[Math.floor(Math.random() * values.length)];
 
     if (choice === img1) {
+      console.log(gameState.tailCounter, gameState.headCounter, gameState.totalCounter);
       setGameState({
         imgChoice: choice,
-        tailCounter: gameState.tailCounter++,
-        headCounter: gameState.headCounter,
-        totalCounter: gameState.totalCounter++
+        tailCounter: gameState.tailCounter, // +1 do this
+        headCounter: gameState.headCounter+1, // ++ <- mutating state, don't do this
+        totalCounter: gameState.totalCounter+1 // ++i more useful than i++
       })
+      console.log(gameState.tailCounter, gameState.headCounter, gameState.totalCounter);
     } else {
       setGameState({
         imgChoice: choice,
-        headCounter: gameState.headCounter++,
-        tailCounter: gameState.tailCounter,
-        totalCounter: gameState.totalCounter++
+        headCounter: gameState.headCounter,
+        tailCounter: gameState.tailCounter+1,
+        totalCounter: gameState.totalCounter+1
       })
     }
-
-    debugger;
 
   }
 
