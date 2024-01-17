@@ -1,10 +1,6 @@
 
 
-function Coin({ coinState }){
-  let imgSrc;
-
-  if(coinState === 'H' ) imgSrc='harharhar;'
-  else imgSrc='blah'
+function Coin({ imgChoice }){
 
   const style = {
     width: "200px",
@@ -13,7 +9,7 @@ function Coin({ coinState }){
 
   return (
     <div className="Coin">
-      <img src={imgSrc} />
+      <img src={imgChoice} />
     </div>
   )
 
