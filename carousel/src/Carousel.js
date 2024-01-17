@@ -55,4 +55,7 @@ import Card from "./Card";
   );
 }
 
+// TODO: consider CSS visibility/hidden propoerty instead of removing/adding
+// <i> element
+
 export default Carousel;

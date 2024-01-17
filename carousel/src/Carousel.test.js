@@ -51,6 +51,7 @@ it("works when you click on the left arrow", function() {
   // move forward in the carousel
   const rightArrow = container.querySelector(".bi-arrow-right-circle");
   fireEvent.click(rightArrow);
+  // TODO: test the change when this event occurs
 
   expect(
     container.querySelector('img[alt="testing image 2"]')
@@ -59,9 +60,11 @@ it("works when you click on the left arrow", function() {
     container.querySelector('img[alt="testing image 1"]')
   ).not.toBeInTheDocument();
 
-  // move forward in the carousel
+  // move backward in the carousel
   const leftArrow = container.querySelector(".bi-arrow-left-circle");
   fireEvent.click(leftArrow);
+
+  // TODO: ^does this work with each move?
 
   // expect the first image to show, but not the second
   expect(
@@ -94,6 +97,8 @@ it("should hide right arrow when on last image", function() {
       title="images for testing"
     />
   );
+  // TODO: proving that img isn't there on last img
+  // TODO: should test in between too
 
   // move forward in the carousel
   const rightArrow = container.querySelector(".bi-arrow-right-circle");
